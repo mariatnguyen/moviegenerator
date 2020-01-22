@@ -12,4 +12,3 @@ Currently a work in progress... The goal is to:
 - Add animations to menu
 - Add more customizable parameters other than genre (year and/or rating)
 - Add an error message if can't find a movie
-- Random movie suggestions seems to scroll through the same few movies... not sure if this is because of API running through only 1 page of the array or something else
