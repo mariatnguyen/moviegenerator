@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<title>Generate a movie</title>
+</head>
+<header>
+  <div class="title"><h1>Random movie generator</h1></div>
+  <div class="preferences">
+      <div class="dropdown">
+        <button onclick="genreBtn()" class="dropbtn">Genre &#8964;</button>
+        <div id="genreSelect" class="drp">
+        </div>
+      </div>
+      <button class="btn" id="btn">Search</button>
+  </div>
+</header>
+<body>
+  <div class="content">
+    <div id="mainMoviePoster"></div>
+    <div class="mainMovieDetails">
+      <h1 id="mainMovieTitle"></h1>
+      <p class="mainMovieMore"><span id="mainMovieDate"></span> <span id="mainMovieRating"></span></p>
+      <p id="mainMovieDescription"></p>
+    </div>
+  </div>
+  <p style="text-align:center"><img src="powered-by-themoviedb.svg" width="80"></p>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
