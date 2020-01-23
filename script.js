@@ -1,9 +1,9 @@
-let appId = 'e2a860a3a9584ef759207f1934070726'; 
-//format is https://api.themoviedb.org/3/search/movie?api_key=e2a860a3a9584ef759207f1934070726&query=comedy
-var genreSelected;
+let appId = 'APP_ID'; 
+let genreSelected;
+let pageNumber;
 
 function searchMovie(genreSelected) {
-  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${appId}&language=en-US&with_genres=${genreSelected}`).then(result => {
+  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${appId}&language=en-US&page=${pageNumber}&with_genres=${genreSelected}`).then(result => {
     return result.json();
   }).then(result => {
     init(result);
@@ -34,6 +34,7 @@ Object.keys(genres).map(key => {
   document.getElementById('genreSelect').innerHTML += '<a href="#" id="' + genres[key] + '">' + genres[key] + '</a>';
 });
 
+
 for (var i = 0, clicked = document.getElementById('genreSelect').children.length; i < clicked; i++)
 {
     (function(clickGenre){
@@ -48,7 +49,7 @@ for (var i = 0, clicked = document.getElementById('genreSelect').children.length
                     if(genreSelected)
                       searchMovie(genreSelected);
                   });
-          //console.log(genreSelected);
+        pageNumber = Math.floor(Math.random() * 500) + 1;
         }    
     })(i);
 }
@@ -56,7 +57,7 @@ for (var i = 0, clicked = document.getElementById('genreSelect').children.length
 function init(movieResult) {
   console.log(movieResult);
   let randomMovie = movieResult.results[Math.floor(movieResult.results.length*Math.random())];
-  //console.log(randomMovie);
+  console.log(randomMovie);
   document.getElementById('mainMoviePoster').innerHTML = '<img src="https://image.tmdb.org/t/p/w500' + randomMovie.poster_path + '">';
   document.getElementById('mainMovieTitle').innerHTML = randomMovie.title;
   document.getElementById('mainMovieDate').innerHTML = randomMovie.release_date;
