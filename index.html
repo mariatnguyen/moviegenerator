@@ -10,8 +10,21 @@
   <div class="title"><h1>Random movie generator</h1></div>
   <div class="preferences">
       <div class="dropdown">
-        <button onclick="genreBtn()" class="dropbtn">Genre &#8964;</button>
+        <button onclick="genreBtn()" id="genreBtn" class="dropbtn">Genre &#8964;</button>
         <div id="genreSelect" class="drp">
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="yearBtn()" id="yearBtn" class="dropbtn">Year &#8964;</button>
+        <div id="yearSelect" class="drp">
+          <a href="#" id="1950s">1950s</a>
+          <a href="#" id="1960s">1960s</a>
+          <a href="#" id="1970s">1970s</a>
+          <a href="#" id="1980s">1980s</a>
+          <a href="#" id="1990s">1990s</a>
+          <a href="#" id="2000s">2000s</a>
+          <a href="#" id="2010s">2010s</a>
+          <a href="#" id="2020s">2020s</a>
         </div>
       </div>
       <button class="btn" id="btn">Search</button>
@@ -28,5 +41,6 @@
   </div>
   <p style="text-align:center"><img src="powered-by-themoviedb.svg" width="80"></p>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="moment.min.js"></script>
 </body>
 </html>
