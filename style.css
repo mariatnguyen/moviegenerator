@@ -1,14 +1,19 @@
-html, body {
-  width:100%;
-  margin:auto;
+html {
   background-color:#1e1e1e;
-  font-family: 'Roboto', sans-serif;
-  color:#ffffff;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 40%, rgba(30,30,30,1) 100%);
+  min-height:100%;
 }
 
 body {
   max-width:800px;
   padding:50px 20px 20px 20px;
+}
+
+html, body {
+  width:100%;
+  margin:auto;
+  font-family: 'Roboto', sans-serif;
+  color:#ffffff;
 }
 
 header {
@@ -41,7 +46,7 @@ button {
 .dropbtn {
   color: white;
   font-size:16px;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 30px 0px 0px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -78,6 +83,10 @@ button {
 .drp a:hover {
   background-color: #494949;
   color:#ffffff;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
 }
 
 .show {
@@ -92,11 +101,21 @@ button {
   border-radius:20px;
   background-color: #494949;
   color:#ffffff;
-  padding:5px 20px 5px 20px;
+  padding:8px 20px 8px 20px;
+  top:-5px;
   text-align:center;
   font-size:16px;
   margin:0px;
   cursor:pointer;
+  position:relative;
+}
+
+.btn:hover {
+  opacity:0.8;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
 }
 
 .content {
@@ -104,7 +123,6 @@ button {
   height:100%;
   min-height:400px;
   margin:auto;
-  background-color:#1e1e1e;
   justify-content: space-between;
   align-content: center;
   flex-direction: column;
@@ -147,6 +165,10 @@ button {
     padding:20px;
     box-sizing:border-box;
   }
+  .title {
+    display:block;
+    margin-bottom:20px;
+  }
   .content {
     padding-top:100px;
     box-sizing:border-box;
@@ -155,5 +177,9 @@ button {
     width:100%;
     display:block;
     text-align:center;
+  }
+  .drp a {
+    font-size:10px;
+    padding: 5px 10px 5px 10px;
   }
 }
