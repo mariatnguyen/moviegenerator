@@ -1,46 +1,56 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="style.css">
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<title>Generate a movie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <title>Generate a movie</title>
 </head>
 <header>
-  <div class="title"><h1>Random movie generator</h1></div>
+  <div class="title">
+    <h1>Random Movie Generator</h1>
+  </div>
   <div class="preferences">
-      <div class="dropdown">
-        <button onclick="genreBtn()" id="genreBtn" class="dropbtn">Genre &#8964;</button>
-        <div id="genreSelect" class="drp">
-        </div>
+    <div class="dropdown">
+      <button id="genreBtn" class="dropbtn">Genre</button>
+      <div id="genreSelect" class="drp">
       </div>
-      <div class="dropdown">
-        <button onclick="yearBtn()" id="yearBtn" class="dropbtn">Year &#8964;</button>
-        <div id="yearSelect" class="drp">
-          <a href="#" id="1950s">1950s</a>
-          <a href="#" id="1960s">1960s</a>
-          <a href="#" id="1970s">1970s</a>
-          <a href="#" id="1980s">1980s</a>
-          <a href="#" id="1990s">1990s</a>
-          <a href="#" id="2000s">2000s</a>
-          <a href="#" id="2010s">2010s</a>
-          <a href="#" id="2020s">2020s</a>
-        </div>
+    </div>
+    <div class="dropdown">
+      <button id="yearBtn" class="dropbtn">Year</button>
+      <div id="yearSelect" class="drp">
+        <a href="#" id="1950s">1950s</a>
+        <a href="#" id="1960s">1960s</a>
+        <a href="#" id="1970s">1970s</a>
+        <a href="#" id="1980s">1980s</a>
+        <a href="#" id="1990s">1990s</a>
+        <a href="#" id="2000s">2000s</a>
+        <a href="#" id="2010s">2010s</a>
+        <a href="#" id="2020s">2020s</a>
+        <a href="#" id="All">All</a>
       </div>
-      <button class="btn" id="btn">Search</button>
+    </div>
+    <button class="btn" id="btn">Search</button>
   </div>
 </header>
+
 <body>
   <div class="content">
-    <div id="mainMoviePoster"></div>
-    <div class="mainMovieDetails">
-      <h1 id="mainMovieTitle"></h1>
-      <p class="mainMovieMore"><span id="mainMovieDate"></span> <span id="mainMovieRating"></span></p>
-      <p id="mainMovieDescription"></p>
+    <div id="main-movie_default"><img src="images/movie-generator-initialimage.png" width="100%" height="auto"></div>
+    <div class="movie-suggestion-wrapper">
+      <div id="main-movie_poster"></div>
+      <div class="main-movie_details">
+        <h1 id="main-movie_title"></h1>
+        <p class="main-movie_more"><span id="main-movie_date"></span> <span id="main-movie_rating"></span></p>
+        <p class="main-movie_more" id="main-movie_genres"></p>
+        <p id="main-movie_description"></p>
+      </div>
     </div>
   </div>
-  <p style="text-align:center"><img src="powered-by-themoviedb.svg" width="80"></p>
-<script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="moment.min.js"></script>
+  <p style="text-align:center"><img src="powered-by-themoviedb.svg" width="80" height="auto"></p>
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="moment.min.js"></script>
 </body>
+
 </html>

@@ -1,85 +1,95 @@
 html {
-  background-color:#1e1e1e;
+  min-height: 100%;
+  background-color: #1e1e1e;
   background: linear-gradient(180deg, rgba(0,0,0,1) 40%, rgba(30,30,30,1) 100%);
-  min-height:100%;
 }
-
 body {
-  max-width:800px;
-  padding:50px 20px 20px 20px;
+  max-width: 800px;
+  padding: 50px 20px 20px 20px;
 }
-
 html, body {
-  width:100%;
-  margin:auto;
+  width :100%;
+  margin: auto;
   font-family: 'Roboto', sans-serif;
-  color:#ffffff;
+  color: #ffffff;
 }
-
 header {
-  display:block;
-  padding:20px;
+  display: block;
+  padding: 20px;
 }
-
+.content {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  margin: auto;
+  padding: 50px 20px 20px 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+}
+* {
+  box-sizing: border-box;
+}
+.movie-suggestion-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: flex-start;
+}
 .title {
-  float:left;
-  text-align:left;
+  float: left;
+  text-align: left;
 }
-
 .title h1 {
-  padding:0px;
-  margin:0px;
-  font-size:20px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 20px;
 }
-
 .preferences {
-  float:right;
-  display:flex;
-  vertical-align:center;
+  display: flex;
+  justify-content: flex-end;
+  float: right;
 }
-
 button {
-  border:0px;
-  display:block;
+  display: block;
+  border: 0px;
 }
-
 .dropbtn {
-  color: white;
-  font-size:16px;
   padding: 0px 30px 0px 0px;
-  font-size: 16px;
   border: none;
+  background-color: transparent;
+  font-size: 16px;
+  color: white;
   cursor: pointer;
-  background-color:transparent;
 }
-
-.dropdown {
+.dropbtn:after {
+  content: ' \2304';
   position: relative;
-  display: inline-block;
+  top: -3px;
 }
-
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
 .drp {
   display: none;
   position: absolute;
-  background-color: #2b2b2b;
-  min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
   z-index: 1;
-  border-radius:3px;
-  margin: 10px 0px 0px 0px;
-  font-size:11px;
+  min-width: 120px;
+  padding: 10px 0px 0px 0px;
+  border-radius: 3px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+  background-color: #2b2b2b;
+  font-size: 11px;
 }
-
 .drp a {
-  color: #ababab;
-  padding: 8px 15px 8px 15px;
-  text-decoration: none;
   display: block;
-  font-size:11px;
-  background-color:transparent;
-  text-align:center;
+  padding: 8px 15px 8px 15px;
+  background-color: transparent;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
+  color: #ababab;
 }
-
 .drp a:hover {
   background-color: #494949;
   color:#ffffff;
@@ -88,98 +98,107 @@ button {
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
 }
-
 .show {
-  display:block;
+  display: block;
 }
-
 .hide {
-  display:none;
+  display: none;
 }
-
 .btn {
-  border-radius:20px;
+  position: relative;
+  top: -5px;
+  margin: 0px;
+  padding: 8px 20px 8px 20px;
+  border-radius: 20px;
   background-color: #494949;
-  color:#ffffff;
-  padding:8px 20px 8px 20px;
-  top:-5px;
-  text-align:center;
-  font-size:16px;
-  margin:0px;
-  cursor:pointer;
-  position:relative;
+  text-align: center;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
 }
-
 .btn:hover {
-  opacity:0.8;
+  opacity: 0.8;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
 }
-
-.content {
-  width:100%;
-  height:100%;
-  min-height:400px;
-  margin:auto;
-  justify-content: space-between;
-  align-content: center;
-  flex-direction: column;
-  font-family: 'Roboto', sans-serif;
-  color:#ffffff;
-  padding:50px 20px 20px 20px;
+#movie-poster-default {
+  clear: both;
 }
-
-#mainMoviePoster {
-  display:inline-block;
-  width:30%;
+#main-movie_poster {
+  display: block;
+  width: auto;
+  padding-right: 25px;
 }
-
-#mainMoviePoster img {
-  width:200px;
+#main-movie_poster img {
+  width: 200px;
 }
-
-.mainMovieDetails {
-  display:inline-block;
-  width:68%;
-  vertical-align:top;
+.main-movie_details {
+  display: block;
+  width: 100%;
 }
-
-#mainMovieTitle {
-  font-size:28px;
+.main-movie_details #main-movie_title {
+  font-size: 28px;
 }
-
-.mainMovieMore {
-  color:#ababab;
-  font-weight:900;
+.main-movie_details .main-movie_more {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 200;
+  color: #ababab;
 }
-
-#mainMovieDescription {
-  font-size:14px;
-  line-height:1.2em;
+.main-movie_details .main-movie_genre:after {
+  content: ', '
 }
-
-@media only screen and (max-width:820px) {
-  body {
-    padding:20px;
-    box-sizing:border-box;
-  }
+.main-movie_details .main-movie_genre:last-child:after {
+  content: ''
+}
+.main-movie_details #main-movie_description {
+  font-size: 14px;
+  line-height: 1.2em;
+}
+@media only screen and (max-width:620px) {
   .title {
-    display:block;
-    margin-bottom:20px;
+    display: block;
+    float: none;
+    margin-bottom: 20px;
+    text-align: center;
+  }  
+  .preferences {
+    flex-wrap: wrap;
+    float: none;
+    justify-content: center;
+  }
+  .preferences > div {
+    padding-bottom: 15px;
+  }
+  .preferences > div .dropbtn {
+    padding: 0px 10px 0px 0px;
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width:568px) {
+  body {
+    padding: 20px;
+    box-sizing: border-box;
+  }  
+  header {
+    padding: 10px;
   }
   .content {
-    padding-top:100px;
-    box-sizing:border-box;
+    padding: 50px 10px 10px 10px;
+    box-sizing: border-box;
+  }  
+  .movie-suggestion-wrapper {
+    display: block;
   }
-  #mainMoviePoster, .mainMovieDetails {
-    width:100%;
-    display:block;
-    text-align:center;
-  }
+  #main-movie_poster, 
+  .main-movie_details {
+    padding: 0px;
+    text-align: center;
+  }  
   .drp a {
-    font-size:10px;
     padding: 5px 10px 5px 10px;
+    font-size: 10px;
   }
 }
