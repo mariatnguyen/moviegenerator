@@ -55,28 +55,28 @@ for (var i = 0; i < document.getElementById('yearSelect').children.length; i++) 
       document.getElementById('yearBtn').innerHTML = decade;
       switch (decade) {
         case decade = "1950s":
-          yearString = '&primary_release_year=' + Math.floor(Math.random() * (1959 - 1950 + 1)) + 1950;
+          yearString = '&primary_release_year=' + (Math.floor(Math.random() * (1959 - 1950 + 1)) + 1950).toString();
           break;
         case decade = "1960s":
-          yearString = '&primary_release_year=' + Math.floor(Math.random() * (1969 - 1960 + 1)) + 1960;
+          yearString = '&primary_release_year=' + (Math.floor(Math.random() * (1969 - 1960 + 1)) + 1960).toString();
           break;
         case decade = "1970s":
-          yearString = '&primary_release_year=' + Math.floor(Math.random() * (1979 - 1970 + 1)) + 1970;
+          yearString = '&primary_release_year=' + (Math.floor(Math.random() * (1979 - 1970 + 1)) + 1970).toString();
           break;
         case decade = "1980s":
-          yearString = '&primary_release_year=' + Math.floor(Math.random() * (1989 - 1980 + 1)) + 1980;
+          yearString = '&primary_release_year=' + (Math.floor(Math.random() * (1989 - 1980 + 1)) + 1980).toString();
           break;
         case decade = "1990s":
-          yearString = '&primary_release_year=' + Math.floor(Math.random() * (1999 - 1990 + 1)) + 1990;
+          yearString = '&primary_release_year=' + (Math.floor(Math.random() * (1999 - 1990 + 1)) + 1990).toString();
           break;
         case decade = "2000s":
-          yearString = '&primary_release_year=' + Math.floor(Math.random() * (2009 - 2000 + 1)) + 2010;
+          yearString = '&primary_release_year=' + (Math.floor(Math.random() * (2009 - 2000 + 1)) + 2010).toString();
           break;
         case decade = "2010s":
-          yearString = '&primary_release_year=' + Math.floor(Math.random() * (2019 - 2010 + 1)) + 2010;
+          yearString = '&primary_release_year=' + (Math.floor(Math.random() * (2019 - 2010 + 1)) + 2010).toString();
           break;
         case decade = "2020s":
-          yearString = '&primary_release_year=' + 2020;
+          yearString = '&primary_release_year=' + (Math.floor(Math.random() * (2021 - 2020 + 1)) + 2020).toString();
           break;
         case decade = "All":
           yearString = "";
