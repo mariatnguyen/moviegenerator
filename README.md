@@ -3,6 +3,12 @@
 A movie generator app that suggests a movie to watch using The Movie Database API (https://www.themoviedb.org/documentation/api).
 Users can select a genre and/or a decade to choose from, and the results will be randomized.
 
+### V3
+
+* Added error message if user doesn't make a selection
+* Added alt tags to images
+* Implemented template literals
+
 ### V2
 
 * Fixed mobile design. It is now more responsive
