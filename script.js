@@ -25,7 +25,7 @@ var genres = {
 };
 
 Object.keys(genres).map(key => {
-  document.getElementById('genreSelect').innerHTML += '<a href="#" id="' + genres[key] + '">' + genres[key] + '</a>';
+  document.getElementById('genreSelect').innerHTML += `<a href="#" id="${genres[key]}">${genres[key]}</a>`;
 });
 
 for (var i = 0; i < document.getElementById('genreSelect').children.length; i++) {
@@ -33,7 +33,7 @@ for (var i = 0; i < document.getElementById('genreSelect').children.length; i++)
     let genreSelected;
     document.getElementById('genreSelect').children[i].onclick = function () {
       document.getElementById("genreSelect").classList.add("hide");
-      if(Object.values(genres)[clickGenre] == "All") {
+      if (Object.values(genres)[clickGenre] == "All") {
         document.getElementById('genreBtn').innerHTML = "All";
         genreString = "";
       } else {
@@ -41,6 +41,7 @@ for (var i = 0; i < document.getElementById('genreSelect').children.length; i++)
         document.getElementById('genreBtn').innerHTML = Object.values(genres)[clickGenre];
         genreString = '&with_genres=' + parseInt(genreSelected);
       }
+      document.getElementById('genreBtn').classList.remove('error');
       searchMovie(genreString);
     }
   })(i);
@@ -82,35 +83,57 @@ for (var i = 0; i < document.getElementById('yearSelect').children.length; i++) 
           yearString = "";
           break;
       }
+      document.getElementById('yearBtn').classList.remove('error');
       searchMovie(yearString);
     }
   })(i);
 };
 
 //Display results after clicking search
+
+function emptySearch(event) {
+  event.preventDefault();
+  if (document.getElementById('genreBtn').innerHTML === "Genre") {
+    document.getElementById('genreBtn').classList.add('error');
+  }
+  if (document.getElementById('yearBtn').innerHTML === "Year") {
+    document.getElementById('yearBtn').classList.add('error');
+  }
+}
+
 function searchMovie() {
-  document.getElementById('btn').addEventListener('click', () => {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${genreString}${yearString}`)
-      .then((initialurl) => initialurl.json())
-      .then(initialresult => {
-        pageNumber = '&page=' + Math.floor(Math.random() * (initialresult.total_pages + 1));
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${genreString}${yearString}${pageNumber}`)
-          .then((completedurl) => completedurl.json())
-          .then(completedresult => {
-            document.getElementById('main-movie_default').style.display = "none";
-            document.getElementById('genreBtn').innerHTML = "Genre";
-            document.getElementById('yearBtn').innerHTML = "Year";
-            displayMovie(completedresult);
-          })
-      })
+  document.getElementById('btn').addEventListener('click', (event) => {
+    if (document.getElementById('genreBtn').innerHTML === "Genre" || document.getElementById('yearBtn').innerHTML === "Year") {
+      emptySearch(event);
+    } else {
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${genreString}${yearString}`)
+        .then((initialurl) => initialurl.json())
+        .then(initialresult => {
+          pageNumber = '&page=' + Math.floor(Math.random() * (initialresult.total_pages + 1));
+          fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${genreString}${yearString}${pageNumber}`)
+            .then((completedurl) => completedurl.json())
+            .then(completedresult => {
+              document.getElementById('main-movie_default').style.display = "none";
+              document.getElementById('genreBtn').innerHTML = "Genre";
+              document.getElementById('yearBtn').innerHTML = "Year";
+              displayMovie(completedresult);
+            })
+        })
+    }
   });
 };
+
+document.getElementById('btn').addEventListener('click', (event) => {
+  if (document.getElementById('genreBtn').innerHTML === "Genre" || document.getElementById('yearBtn').innerHTML === "Year") {
+    emptySearch(event);
+  }
+});
 
 function displayMovie(movieResult) {
   let randomMovie = movieResult.results[Math.floor(movieResult.results.length * Math.random())];
   if (randomMovie.poster_path !== null) {
     document.getElementById('main-movie_poster').style.display = 'block';
-    document.getElementById('main-movie_poster').innerHTML = '<img src="https://image.tmdb.org/t/p/w500' + randomMovie.poster_path + '">';
+    document.getElementById('main-movie_poster').innerHTML = `<img src="https://image.tmdb.org/t/p/w500${randomMovie.poster_path}" alt="${randomMovie.title}" >`;
   }
   else {
     document.getElementById('main-movie_poster').style.display = 'none';
@@ -118,7 +141,7 @@ function displayMovie(movieResult) {
   document.getElementById('main-movie_title').innerHTML = randomMovie.title;
   document.getElementById('main-movie_date').innerHTML = moment(randomMovie.release_date).format("MMM Do, YYYY");
   if (randomMovie.vote_average !== 0) {
-    document.getElementById('main-movie_rating').innerHTML = " | " + randomMovie.vote_average + "/10";
+    document.getElementById('main-movie_rating').innerHTML = ` | ${randomMovie.vote_average}/10`;
   } else {
     document.getElementById('main-movie_rating').innerHTML = "";
   }
