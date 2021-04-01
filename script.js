@@ -89,8 +89,28 @@ for (var i = 0; i < document.getElementById('yearSelect').children.length; i++) 
   })(i);
 };
 
-//Display results after clicking search
+//Introductory display
+(function fetchPosters() {
+  pageNumber = '&page=' + Math.floor(Math.random() * (500 + 1));
+  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&include_adult=false${pageNumber}`)
+    .then((url) => url.json())
+    .then(results => {
+      mixedPosters(results);
+    })
+})();
 
+function mixedPosters(mixedMovies) {
+  for (var i = 1; i < 6; i++) {
+      i;
+      if (mixedMovies.results[i].poster_path !== null) {
+      document.getElementById('random-movie_' + i).innerHTML = `<img src="https://image.tmdb.org/t/p/w500${mixedMovies.results[i].poster_path}" alt="${mixedMovies.results[i].title}" ></img>`;
+    } else {
+      document.getElementById('random-movie_' + i).style.display = 'none';
+    }
+  }
+}
+
+//Display results after clicking search
 function emptySearch(event) {
   event.preventDefault();
   if (document.getElementById('genreBtn').innerHTML === "Genre") {
@@ -134,8 +154,7 @@ function displayMovie(movieResult) {
   if (randomMovie.poster_path !== null) {
     document.getElementById('main-movie_poster').style.display = 'block';
     document.getElementById('main-movie_poster').innerHTML = `<img src="https://image.tmdb.org/t/p/w500${randomMovie.poster_path}" alt="${randomMovie.title}" >`;
-  }
-  else {
+  } else {
     document.getElementById('main-movie_poster').style.display = 'none';
   }
   document.getElementById('main-movie_title').innerHTML = randomMovie.title;
