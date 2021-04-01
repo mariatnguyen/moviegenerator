@@ -3,6 +3,12 @@
 A movie generator app that suggests a movie to watch using The Movie Database API (https://www.themoviedb.org/documentation/api).
 Users can select a genre and/or a decade to choose from, and the results will be randomized.
 
+### V4
+
+* Added random movie posters to initialize and animate on page load. Before, it was a static image. 
+* Updated The Movie Database logo
+* Added footer to link to Github
+
 ### V3
 
 * Added error message if user doesn't make a selection
@@ -29,8 +35,6 @@ Users can select a genre and/or a decade to choose from, and the results will be
 * Created script, stylesheet, and index.html files
 * Pulled from The Movie Database API to show a randomized movie result based on: decade and genre
 
-#### To-do:
+#### Potential improvements:
 
-* Initialize web page with something better
 * View more movie results (only displays first 10,000 results and first 500 pages for "All" selection)
-* Add more intuitive UX to show that they can select genre OR decade. Currently, I can click on one versus the other and still have a result show up
