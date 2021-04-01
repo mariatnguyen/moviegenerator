@@ -5,7 +5,8 @@ Users can select a genre and/or a decade to choose from, and the results will be
 
 ### V4
 
-* Added random movie posters to initialize and animate on page load. Before, it was a static image. 
+* Added randomized movie posters to initialize and animate on page load. Before, it was a static image. 
+* Added alt tags
 * Updated The Movie Database logo
 * Added footer to link to Github
 
