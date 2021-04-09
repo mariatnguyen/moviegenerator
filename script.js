@@ -133,7 +133,7 @@ function searchMovie() {
           fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${genreString}${yearString}${pageNumber}`)
             .then((completedurl) => completedurl.json())
             .then(completedresult => {
-              document.getElementById('main-movie_default').style.display = "none";
+              document.getElementById('main-movie__default').style.display = "none";
               document.getElementById('genreBtn').innerHTML = "Genre";
               document.getElementById('yearBtn').innerHTML = "Year";
               displayMovie(completedresult);
@@ -152,17 +152,17 @@ document.getElementById('btn').addEventListener('click', (event) => {
 function displayMovie(movieResult) {
   let randomMovie = movieResult.results[Math.floor(movieResult.results.length * Math.random())];
   if (randomMovie.poster_path !== null) {
-    document.getElementById('main-movie_poster').style.display = 'block';
-    document.getElementById('main-movie_poster').innerHTML = `<img src="https://image.tmdb.org/t/p/w500${randomMovie.poster_path}" alt="${randomMovie.title}" >`;
+    document.getElementById('main-movie__poster').style.display = 'block';
+    document.getElementById('main-movie__poster').innerHTML = `<img src="https://image.tmdb.org/t/p/w500${randomMovie.poster_path}" alt="${randomMovie.title}" >`;
   } else {
-    document.getElementById('main-movie_poster').style.display = 'none';
+    document.getElementById('main-movie__poster').style.display = 'none';
   }
-  document.getElementById('main-movie_title').innerHTML = randomMovie.title;
-  document.getElementById('main-movie_date').innerHTML = moment(randomMovie.release_date).format("MMM Do, YYYY");
+  document.getElementById('main-movie__title').innerHTML = randomMovie.title;
+  document.getElementById('main-movie__date').innerHTML = moment(randomMovie.release_date).format("MMM Do, YYYY");
   if (randomMovie.vote_average !== 0) {
-    document.getElementById('main-movie_rating').innerHTML = ` | ${randomMovie.vote_average}/10`;
+    document.getElementById('main-movie__rating').innerHTML = ` | ${randomMovie.vote_average}/10`;
   } else {
-    document.getElementById('main-movie_rating').innerHTML = "";
+    document.getElementById('main-movie__rating').innerHTML = "";
   }
 
   var allGenres = "";
@@ -173,13 +173,13 @@ function displayMovie(movieResult) {
       randomMovie.genre_ids.map(
         function (genre_id) {
           if (id == genre_id) {
-            allGenres += '<span class="main-movie_genre">' + genre + '</span>';
-            document.getElementById('main-movie_genres').innerHTML = allGenres;
+            allGenres += '<span class="main-movie__genre">' + genre + '</span>';
+            document.getElementById('main-movie__genres').innerHTML = allGenres;
           }
         });
     });
 
-  document.getElementById('main-movie_description').innerHTML = randomMovie.overview;
+  document.getElementById('main-movie__description').innerHTML = randomMovie.overview;
 }
 
 //Navigation changes
