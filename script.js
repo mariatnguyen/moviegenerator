@@ -100,13 +100,12 @@ for (var i = 0; i < document.getElementById('yearSelect').children.length; i++) 
 })();
 
 function mixedPosters(mixedMovies) {
-  for (var i = 1; i < 6; i++) {
-      i;
-      if (mixedMovies.results[i].poster_path !== null) {
-      document.getElementById('random-movie_' + i).innerHTML = `<img src="https://image.tmdb.org/t/p/w500${mixedMovies.results[i].poster_path}" alt="${mixedMovies.results[i].title}" ></img>`;
-    } else {
-      document.getElementById('random-movie_' + i).style.display = 'none';
+  for (var i = 1, k = 1; i < 6; i++, k++) {
+    i,k;
+    if (mixedMovies.results[i].poster_path == null) {
+      k++;
     }
+    document.getElementById('random-movie_' + i).innerHTML = `<img src="https://image.tmdb.org/t/p/w500${mixedMovies.results[k].poster_path}" alt="${mixedMovies.results[k].title}" ></img>`;
   }
 }
 
