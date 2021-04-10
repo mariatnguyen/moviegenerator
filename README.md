@@ -3,6 +3,10 @@
 A movie generator app that suggests a movie to watch using The Movie Database API (https://www.themoviedb.org/documentation/api).
 Users can select a genre and/or a decade to choose from, and the results will be randomized.
 
+### V5
+
+* Fixed bug: whenever a poster image is empty on the random movie poster display, display next best poster
+ 
 ### V4
 
 * Added randomized movie posters to initialize and animate on page load. Before, it was a static image. 
