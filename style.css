@@ -19,6 +19,7 @@ body {
   margin: auto;
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
+  overflow-x: hidden;
 }
 header {
   display: block;
