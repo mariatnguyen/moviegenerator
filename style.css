@@ -1,15 +1,21 @@
+
+* {
+  box-sizing: border-box;
+}
 html {
   min-height: 100%;
   background-color: #1e1e1e;
   background: linear-gradient(180deg, rgba(0,0,0,1) 40%, rgba(30,30,30,1) 100%);
 }
 body {
+  position:relative;
   max-width: 800px;
   padding: 50px 20px 20px 20px;
 }
 html, 
 body {
-  width :100%;
+  height: 100%;
+  width: 100%;
   margin: auto;
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
@@ -24,16 +30,18 @@ header a:hover {
   text-decoration: none;
 }
 .content {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);  
+  width:760px;
   min-height: 500px;
   margin: auto;
   padding: 50px 20px 20px 20px;
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
-}
-* {
-  box-sizing: border-box;
 }
 .movie-suggestion-wrapper {
   display: flex;
@@ -57,7 +65,7 @@ header a:hover {
   display: flex;
   justify-content: flex-end;
   float: right;
-  z-index: 10;
+  z-index: 100;
 }
 button {
   display: block;
@@ -256,6 +264,10 @@ button {
   line-height: 1.2em;
 }
 footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
   text-align: center;
 }
 footer a,
@@ -264,7 +276,6 @@ footer a:hover {
   font-size: 12px;
   text-decoration: none;
 }
-
 
 @-webkit-keyframes fadein40 {
   0% {
@@ -362,7 +373,34 @@ footer a:hover {
     opacity: 1;
   }
 }
+
+@media only screen and (max-height:650px) {
+  html, 
+  body {
+    height: auto;
+  }
+  .content {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 50px 10px 10px 10px;
+    box-sizing: border-box;
+    transform: none;
+  }  
+  footer {
+    position: relative;
+  }
+}
 @media only screen and (max-width:620px) {
+  .content {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 50px 10px 10px 10px;
+    box-sizing: border-box;
+    transform: none;
+  }  
   .title {
     display: block;
     float: none;
@@ -412,10 +450,6 @@ footer a:hover {
   header {
     padding: 10px;
   }
-  .content {
-    padding: 50px 10px 10px 10px;
-    box-sizing: border-box;
-  }  
   .movie-suggestion-wrapper {
     display: block;
   }

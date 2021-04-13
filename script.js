@@ -125,11 +125,11 @@ function searchMovie() {
     if (document.getElementById('genreBtn').innerHTML === "Genre" || document.getElementById('yearBtn').innerHTML === "Year") {
       emptySearch(event);
     } else {
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${genreString}${yearString}`)
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&include_adult=false${genreString}${yearString}`)
         .then((initialurl) => initialurl.json())
         .then(initialresult => {
           pageNumber = '&page=' + Math.floor(Math.random() * (initialresult.total_pages + 1));
-          fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${genreString}${yearString}${pageNumber}`)
+          fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-U&include_adult=falseS${genreString}${yearString}${pageNumber}`)
             .then((completedurl) => completedurl.json())
             .then(completedresult => {
               document.getElementById('main-movie__default').style.display = "none";
