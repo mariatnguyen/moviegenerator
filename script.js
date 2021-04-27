@@ -1,4 +1,4 @@
-let apiKey = 'e2a860a3a9584ef759207f1934070726';
+var apiKey = config.SECRET_API_KEY;
 let genreString = "";
 let yearString = "";
 let pageNumber = "";
